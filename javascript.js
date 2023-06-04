@@ -42,9 +42,9 @@ function rpsGame(playerSelection, computerSelection){
 }
 
 
-let x = getComputerChoice()
-console.log(x)
-console.log(rpsGame("ROCK", x))
+let computerChoice = getComputerChoice()
+let playerChoice = prompt("Enter either rock, paper or scissors")
+console.log(rpsGame(playerChoice, computerChoice))
 
 /* 
 Rock beats Scissors
