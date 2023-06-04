@@ -41,10 +41,12 @@ function rpsGame(playerSelection, computerSelection){
     )*/
 }
 
-
+for (let i = 0; i < 5; i++){
 let computerChoice = getComputerChoice()
 let playerChoice = prompt("Enter either rock, paper or scissors")
+
 console.log(rpsGame(playerChoice, computerChoice))
+}
 
 /* 
 Rock beats Scissors
