@@ -63,6 +63,7 @@ const computerArray = []
 const rock = document.querySelector('#choiceRock');
 const paper = document.querySelector('#choicePaper')
 const scissors = document.querySelector('#choiceScissors')
+const announcer = document.querySelector(".announcer")
 
 
 
@@ -116,6 +117,12 @@ function rpsGame(playerSelection, computerSelection){
         scorePlayer += 1
     } else if (winner == "tie"){
         whoWon.textContent = "Its a Tie"
+    }else if (roundCounter == 5){
+        if (scorePlayer < scoreComputer){
+            announcer.textContent = "you lost the game"
+        }else{
+            announcer.textContent = "you won the game"
+        }
     }
     roundCounter += 1
     scoreComputerText.textContent = scoreComputer
