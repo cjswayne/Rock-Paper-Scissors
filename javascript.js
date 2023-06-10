@@ -2,32 +2,44 @@
 
 
 
-function changeImage(){
-    console.log("hey gfuck")
-    var image = document.getElementById("computerChoice");
-    image.src="./images/scissors.png"
-}
+
 
 function changeRock(){
     console.log("rock")
     playerChoice = "rock"
-    var image = document.getElementById("computerChoice");
+    var image = document.getElementById("playerChoice");
     image.src="./images/rock.png"
+    gameBoard(rpsGame(playerChoice, getComputerChoice()))
 }
 function changePaper(){
     console.log("paper")
     playerChoice = "paper"
-    var image = document.getElementById("computerChoice");
+    var image = document.getElementById("playerChoice");
     image.src="./images/paper.png"
+    gameBoard(rpsGame(playerChoice, getComputerChoice()))
 }
 
 function changeScissors(){
     console.log("scissors")
     playerChoice = "scissors"
-    var image = document.getElementById("computerChoice");
+    var image = document.getElementById("playerChoice");
     image.src="./images/scissors.png"
+    gameBoard(rpsGame(playerChoice, getComputerChoice()))
 }
 
+function gameBoard(winner){
+
+    
+    
+    
+    whoWon.textContent = winner
+
+    
+}
+const whoWon = document.querySelector('.winner')
+const scorePlayer = document.querySelector('.scorePlayer')
+const scoreComputer = document.querySelector('.scoreComputer')
+const roundCounter = document.querySelector('.roundCounter')
 let playerChoice = ""
 
 
@@ -42,33 +54,6 @@ rock.addEventListener('click', changeRock)
 paper.addEventListener('click', changePaper)
 scissors.addEventListener('click', changeScissors)
 
-/*() => {
-    var image = document.getElementById("computerChoice");
-    image.src="./images/scissors.png"
-});*/
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function getComputerChoice(){
     let choice = Math.floor(Math.random()*3);
@@ -78,6 +63,8 @@ function getComputerChoice(){
         choice === 1 ? play = "scissors" : play = "paper"
         
     )
+    var image = document.getElementById("computerChoice");
+    image.src=`./images/${play}.png`
     return play
 
 }
@@ -88,14 +75,14 @@ function rpsGame(playerSelection, computerSelection){
 
     let winner;
 
-    playerSelection === computerSelection ? winner = "Its a Tie" : (
-        playerSelection === "rock" && computerSelection === "paper" ? winner = "You lose! Paper beats Rock!" :(
-            playerSelection === "rock" && computerSelection === "scissors" ? winner = "You win! Rock beats Scissors": (
-                playerSelection === "paper" && computerSelection === "rock" ? winner = "You win! Paper beats Rock":(
-                    playerSelection === "paper" && computerSelection === "scissors" ? winner = "You lose! Scissors beats Paper":(
-                        playerSelection === "scissors" && computerSelection === "paper" ? winner = "You win! Scissors beats Paper":
-                        playerSelection === "scissors" && computerSelection === "rock" ? winner = "You lose! Rock beats scissors":(
-                            winner = "something is wrong"
+    playerSelection === computerSelection ? winner = "tie" : (
+        playerSelection === "rock" && computerSelection === "paper" ? winner = "lose" :(
+            playerSelection === "rock" && computerSelection === "scissors" ? winner = "win": (
+                playerSelection === "paper" && computerSelection === "rock" ? winner = "win":(
+                    playerSelection === "paper" && computerSelection === "scissors" ? winner = "lose":(
+                        playerSelection === "scissors" && computerSelection === "paper" ? winner = "win":
+                        playerSelection === "scissors" && computerSelection === "rock" ? winner = "lose":(
+                            winner = "ERROR"
                         )
                     ) 
                 )
@@ -104,19 +91,13 @@ function rpsGame(playerSelection, computerSelection){
         )
 
     ) 
-
+    console.log(winner)
     return winner
-    
-    (
-        playerSelection === "rock" || computerSelection === "paper" ? 
-
-    )
 }
 
-let computerChoice = getComputerChoice()
-let playerChoice = prompt("Enter either rock, paper or scissors")
+
  
-console.log(rpsGame(playerChoice, computerChoice))
+
 
 /*
 
