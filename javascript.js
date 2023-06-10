@@ -11,15 +11,21 @@ function changeImage(){
 function changeRock(){
     console.log("rock")
     playerChoice = "rock"
+    var image = document.getElementById("computerChoice");
+    image.src="./images/rock.png"
 }
 function changePaper(){
-    console.log("Paper")
-    playerChoice = "Paper"
+    console.log("paper")
+    playerChoice = "paper"
+    var image = document.getElementById("computerChoice");
+    image.src="./images/paper.png"
 }
 
 function changeScissors(){
-    console.log("Paper")
-    playerChoice = "Paper"
+    console.log("scissors")
+    playerChoice = "scissors"
+    var image = document.getElementById("computerChoice");
+    image.src="./images/scissors.png"
 }
 
 let playerChoice = ""
@@ -28,15 +34,20 @@ let playerChoice = ""
 
 const rock = document.querySelector('#choiceRock');
 const paper = document.querySelector('#choicePaper')
+const scissors = document.querySelector('#choiceScissors')
 
-const test = document.querySelector('#btn')
 
-rock.addEventListener('click', () => {
+
+rock.addEventListener('click', changeRock)
+paper.addEventListener('click', changePaper)
+scissors.addEventListener('click', changeScissors)
+
+/*() => {
     var image = document.getElementById("computerChoice");
     image.src="./images/scissors.png"
-});
+});*/
 
-test.addEventListener('click', changePaper)
+
 
 
 
@@ -58,7 +69,7 @@ test.addEventListener('click', changePaper)
 
 
 
-/*
+
 function getComputerChoice(){
     let choice = Math.floor(Math.random()*3);
     let play
@@ -106,8 +117,8 @@ let computerChoice = getComputerChoice()
 let playerChoice = prompt("Enter either rock, paper or scissors")
  
 console.log(rpsGame(playerChoice, computerChoice))
-}
 
+/*
 
 Rock beats Scissors
 Paper beats Rock
