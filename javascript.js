@@ -9,14 +9,14 @@ function changeRock(){
     playerChoice = "rock"
     var image = document.getElementById("playerChoice");
     image.src="./images/rock.png"
-    gameBoard(rpsGame(playerChoice, getComputerChoice()))
+    rpsGame(playerChoice, getComputerChoice())
 }
 function changePaper(){
     console.log("paper")
     playerChoice = "paper"
     var image = document.getElementById("playerChoice");
     image.src="./images/paper.png"
-    gameBoard(rpsGame(playerChoice, getComputerChoice()))
+    rpsGame(playerChoice, getComputerChoice())
 }
 
 function changeScissors(){
@@ -24,23 +24,39 @@ function changeScissors(){
     playerChoice = "scissors"
     var image = document.getElementById("playerChoice");
     image.src="./images/scissors.png"
-    gameBoard(rpsGame(playerChoice, getComputerChoice()))
+    rpsGame(playerChoice, getComputerChoice())
 }
 
 function gameBoard(winner){
+    
+    if (winner = "tie"){
+        whoWon.textContent = "Its a Tie!"
+    }else if (winner == "win"){
+        whoWon.textContent = "Congratulations, You Won this round!";
+  
+    } else{
+        whoWon.textContent = "You lost :(";
+    }
+    roundCounter += 1
+    roundCounterText.textContent = roundCounter 
 
     
     
+    console.log(roundCounter)
     
-    whoWon.textContent = winner
 
     
 }
 const whoWon = document.querySelector('.winner')
-const scorePlayer = document.querySelector('.scorePlayer')
-const scoreComputer = document.querySelector('.scoreComputer')
-const roundCounter = document.querySelector('.roundCounter')
-let playerChoice = ""
+const scorePlayerText = document.querySelector('.scorePlayer')
+const scoreComputerText = document.querySelector('.scoreComputer')
+const roundCounterText = document.querySelector('.roundCounter')
+let scorePlayer = 0
+let scoreComputer = 0
+let roundCounter = 0
+const playerArray = []
+const computerArray = []
+
 
 
 
@@ -91,7 +107,21 @@ function rpsGame(playerSelection, computerSelection){
         )
 
     ) 
-    console.log(winner)
+
+    if (winner == "lose"){
+        whoWon.textContent = "You lost"
+        scoreComputer += 1
+    } else if (winner == "win"){
+        whoWon.textContent = "You won"
+        scorePlayer += 1
+    } else if (winner == "tie"){
+        whoWon.textContent = "Its a Tie"
+    }
+    roundCounter += 1
+    scoreComputerText.textContent = scoreComputer
+    scorePlayerText.textContent = scorePlayer
+    roundCounterText.textContent = roundCounter
+
     return winner
 }
 
