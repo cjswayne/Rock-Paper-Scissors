@@ -5,29 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="javascript.js">
+    <script src="javascript.js" defer>
     </script>
 </head>
 <body>
+    <button id="btn">Click Me Too</button>
 
         <h1>Rock Paper Scissors!</h1>
 
         <div>
         <p>computer</p>
         <img src="./images/Moon-Face-Happy-GraphicsFairy-799136266" width ="100px">
-        <img src="" class = "imgComputerChoice">
+        <img src="./images/paper.png" class = "imgComputerChoice" width = "50px">
         </div>
 
         <div class="playerSection">
             <p>player</p>
-            <img src="./images/rock.png" width ="100px">
-            <img src="./images/scissors.png" width ="100px">
-            <img src="./images/paper.png" width ="100px">
+            <img id = "choiceRock" src="./images/rock.png" width ="100px">
+           
+            <img id="choiceScissors" src="./images/scissors.png" width ="100px">
+            <img id="choicePaper"src="./images/paper.png" width ="100px">
         </div>
         <div class = "fightingSection">
-            <img src="./images/paper.png" width ="100px">
+            <img class = "playerChoice" src="./images/questionMark" width ="100px">
             <h3>V.</h3>
-            <img src="./images/paper.png" width ="100px">
+            <img id = "computerChoice" src="./images/questionMark" width ="100px">
             <p class = "winner">who won?</p>
             <p class = "scorePlayer">Player Score:</p>
             <p class = "scoreComputer">Computer Score:</p>

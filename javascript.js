@@ -1,3 +1,64 @@
+
+
+
+
+function changeImage(){
+    console.log("hey gfuck")
+    var image = document.getElementById("computerChoice");
+    image.src="./images/scissors.png"
+}
+
+function changeRock(){
+    console.log("rock")
+    playerChoice = "rock"
+}
+function changePaper(){
+    console.log("Paper")
+    playerChoice = "Paper"
+}
+
+function changeScissors(){
+    console.log("Paper")
+    playerChoice = "Paper"
+}
+
+let playerChoice = ""
+
+
+
+const rock = document.querySelector('#choiceRock');
+const paper = document.querySelector('#choicePaper')
+
+const test = document.querySelector('#btn')
+
+rock.addEventListener('click', () => {
+    var image = document.getElementById("computerChoice");
+    image.src="./images/scissors.png"
+});
+
+test.addEventListener('click', changePaper)
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 function getComputerChoice(){
     let choice = Math.floor(Math.random()*3);
     let play
@@ -35,20 +96,19 @@ function rpsGame(playerSelection, computerSelection){
 
     return winner
     
-    /*(
+    (
         playerSelection === "rock" || computerSelection === "paper" ? 
 
-    )*/
+    )
 }
 
-for (let i = 0; i < 5; i++){
 let computerChoice = getComputerChoice()
 let playerChoice = prompt("Enter either rock, paper or scissors")
-
+ 
 console.log(rpsGame(playerChoice, computerChoice))
 }
 
-/* 
+
 Rock beats Scissors
 Paper beats Rock
 Rock beats Scissors
